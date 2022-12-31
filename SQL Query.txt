@@ -1,0 +1,25 @@
+
+
+
+Departmentwise highest salary:  select name , dept, max(salary) from emp group by dept
+
+  first highest salary : SELECT * FROM [emp] order by salary  desc limit 0,1
+second highest salary: SELECT * FROM [emp] order by salary  desc limit 1,1
+
+duplicate salary : SELECT * FROM [emp] group by salary having count(salary)>1 
+                         OR
+                 SELECT name  FROM [emp]  group by name having count(name) >1
+
+delete duplicate :delete from emp where name in (SELECT name  FROM [emp]  group by name having count(name) >1) and  conditin dept="SIT"
+
+like :SELECT * FROM [emp] where name like 'a%'
+
+Between : SELECT * FROM [emp] where salary between 1500 and 5000
+
+IN : SELECT * FROM [emp] where dept in ('SIT' ,'UAT')
+
+or: select * from emp where dept ="SIT" or city ="solapur"
+and: select * from emp where dept ="SIT" and city ="solapur"
+
+how to find name where salary is less than avg salary: SELECT name , salary  FROM [emp]where salary < (select avg(salary) from emp)
+
